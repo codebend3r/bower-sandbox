@@ -1,0 +1,16 @@
+{
+  "appPath": "app",
+  "description": "Bower Sandbox",
+  "homepage": "http://totes-gitlab01.rogers.com/eclipse-app/eclipse-app",
+  "name": "bower-sandbox",
+  "repo": "http://totes-gitlab01.rogers.com/eclipse-app/eclipse-app",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "~1.3.15",
+    "ute-ui": "http://totes-gitlab01.rogers.com/ute/ute-ui.git#~0.8.0-RC3"
+  },
+  "resolutions": {
+    "angular": "1.4.4",
+    "angular-bootstrap": "~0.12.1"
+  }
+}
