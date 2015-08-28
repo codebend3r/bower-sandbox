@@ -1,0 +1,30 @@
+{
+  "name": "bower-sandbox",
+  "version": "0.0.1",
+  "authors": [
+    "Chester Rivas <chester.rivas@gmail.com>"
+  ],
+  "dependencies": {
+    "ute-ui": "0.8.*"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "hello": "echo hello",
+    "deploy": "bash ./bin/deploy",
+    "create-gulp": "[ -d ./gulp-tasks ] || mkdir ./gulp-tasks",
+    "move-gulp-config": "cp ./node_modules/ute-ui/gulp.config.js ./",
+    "move-gulp-tasks": "cp -r ./node_modules/ute-ui/gulp-tasks ./",
+    "move-gulpfile": "cp ./node_modules/ute-ui/Gulpfile.js ./",
+    "move-all": "npm run move-gulp-config && npm run move-gulp-tasks && npm run move-gulpfile",
+    "install": "npm run create-gulp && npm run move-all"
+  },
+  "devDependencies": {
+    "del": "^1.2.1",
+    "gulp": "^3.9.0",
+    "gulp-help": "^1.6.1",
+    "gulp-load-plugins": "^1.0.0-rc.1",
+    "gulp-util": "^3.0.6"
+  }
+}
