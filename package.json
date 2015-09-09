@@ -5,6 +5,15 @@
     "Chester Rivas <chester.rivas@gmail.com>"
   ],
   "dependencies": {
+    "@crivas/ute-ui": "0.8.1"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "hello": "echo hello"
+  },
+  "devDependencies": {
     "browser-sync": "^2.5.0",
     "gulp": "^3.8.11",
     "gulp-add-src": "^0.2.0",
@@ -30,15 +39,6 @@
     "jsdoc": "~3.3.0-alpha8",
     "path-manager": "0.0.2",
     "run-sequence": "~0.3.6",
-    "ute-ui": "0.8.3"
-  },
-  "engines": {
-    "node": ">=0.10.0"
-  },
-  "scripts": {
-    "hello": "echo hello"
-  },
-  "devDependencies": {
     "gulp-jshint": "^1.11.0",
     "jshint-stylish": "^2.0.1"
   }

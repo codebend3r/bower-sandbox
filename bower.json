@@ -3,14 +3,14 @@
   "version": "0.0.1",
   "appPath": "app",
   "description": "Bower Sandbox",
-  "homepage": "http://totes-gitlab01.rogers.com/eclipse-app/eclipse-app",
-  "repo": "http://totes-gitlab01.rogers.com/eclipse-app/eclipse-app",
+  "homepage": "",
+  "repo": "",
   "dependencies": {
     "angular": "~1.3.15",
     "ute-ui": "http://totes-gitlab01.rogers.com/ute/ute-ui.git#~0.8.*"
   },
   "resolutions": {
-    "angular": "1.4.4",
+    "angular": "~1.4.3",
     "angular-bootstrap": "~0.12.1"
   }
 }
