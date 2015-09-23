@@ -5,7 +5,6 @@
     "Chester Rivas <chester.rivas@gmail.com>"
   ],
   "dependencies": {
-    "@crivas/ute-ui": "0.8.1",
     "gulp": "^3.8.11"
   },
   "engines": {
@@ -16,6 +15,8 @@
   },
   "devDependencies": {
     "browser-sync": "^2.9.6",
+    "gulp-help": "^1.6.1",
+    "gulp-load-plugins": "^0.10.0",
     "gulp-util": "^3.0.6",
     "run-sequence": "~0.3.6",
     "underscore": "^1.8.3"

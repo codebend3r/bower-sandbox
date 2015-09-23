@@ -5,7 +5,7 @@ config.coverage = 'coverage';
 config.jsdoc = 'jsdoc';
 config.buildFolder = 'builds';
 config.filename = 'livesite';
-config.app = '';
+config.app = 'app';
 config.jsPath = config.app + '/js';
 config.scssPath = config.app + '/scss';
 config.cssPath = config.app + '/css';
@@ -26,6 +26,22 @@ config.externalGulpTasks = [
   },
   {
     name: 'build',
+    description: ''
+  },
+  {
+    name: 'build-gui',
+    description: ''
+  },
+  {
+    name: 'copy-bower',
+    description: ''
+  },
+  {
+    name: 'copy-index',
+    description: ''
+  },
+  {
+    name: 'copy-js',
     description: ''
   },
   {
