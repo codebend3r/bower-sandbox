@@ -10,7 +10,7 @@ module.exports = function (gulp, plugins, config, gutil) {
     var browserSync = require('browser-sync');
 
     return browserSync.create().init({
-      open: true,
+      open: false,
       port: config.port,
       server: {
         baseDir: config.buildFolder
