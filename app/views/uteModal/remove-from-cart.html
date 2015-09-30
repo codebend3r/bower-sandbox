@@ -1,0 +1,25 @@
+<div class="modal-header">
+  <button type="button" ng-click="cancel()" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true"><span class="ute-icon-circle-x"></span></span>
+  </button>
+  <h4 class="modal-title header-3">
+    <ins translate="confirm-internet-package-remove" ng-hide="ruiMethods.user.is.agent()"></ins>
+    <ins translate="cfa-confirm-internet-package-remove" ng-show="ruiMethods.user.is.agent()"></ins>
+  </h4>
+</div>
+
+<div class="modal-body" ute-tracking="eclipse-pageload-10">
+  <p>
+    <ins translate="are-you-sure-removal" ng-hide="ruiMethods.user.is.agent()"></ins>
+    <ins translate="cfa-are-you-sure-removal" ng-show="ruiMethods.user.is.agent()"></ins>
+  </p>
+</div>
+
+<div class="modal-footer">
+  <a data-dismiss="modal" class="ute-link uppercase clickable" ng-click="cancel()" ute-tracking="eclipse-click-20">
+    <ins translate="global.cta.cancel"></ins>
+  </a>
+  <button class="ute-btn-primary" ng-click="ok()" ute-tracking="eclipse-click-21">
+    <ins translate="confirm-delete"></ins>
+  </button>
+</div>

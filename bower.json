@@ -9,7 +9,7 @@
     "email": "chester.rivas@gmail.com"
   },
   "dependencies": {
-    "ute-ui": "http://totes-gitlab01.rogers.com/ute/ute-ui.git#~0.8.6"
+    "ute-ui": "http://totes-gitlab01.rogers.com/ute/ute-ui.git#~0.8.12"
   },
   "resolutions": {
     "angular": "~1.4.6",
@@ -21,6 +21,7 @@
     "angular": "~1.4.6",
     "angular-translate": "~2.7.2",
     "angular-translate-loader-static-files": "~2.7.2",
+    "angular-ui-router": "~0.2.15",
     "jquery": "~2.1.4",
     "underscore": "~1.8.3"
   }

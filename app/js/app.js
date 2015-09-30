@@ -8,11 +8,11 @@
   'use strict';
 
   // SETTER for livesite module
-  angular.module('livesite', ['ute.ui.livesite']);
+  angular.module('livesite', ['ute.ui.livesite', 'ui.router']);
 
   // GETTER and definition for livesite
   angular.module('livesite')
-    .config(function (uteEndpointProvider, $translateProvider) {
+    .config(function (uteEndpointProvider, $translateProvider, $stateProvider, $urlRouterProvider) {
 
       // configure endpoints so that we can use simplified urls
       uteEndpointProvider.setBaseUrl('http://ute-dev02.fido.ca:8080/html-fido/cms/content/ute/');
@@ -21,6 +21,16 @@
 
       // read value passed down from cookie
       $translateProvider.preferredLanguage('en');
+
+      // For any unmatched url, redirect to /state1
+      $urlRouterProvider.otherwise('/home');
+      //
+      // Now set up the states
+      $stateProvider
+        .state('home', {
+          url: '/home',
+          controller: 'livesiteCtrl'
+        })
 
     })
     .run(function (uteLocale, amMoment) {

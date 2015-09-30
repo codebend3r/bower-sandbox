@@ -1,0 +1,59 @@
+<div class='container-fluid mini-cart'>
+  <div class="row cart-summary">
+    <div class="pull-left">
+      <span class="pull-left mini-cart-total-icon">{{cartItems[lang].services.internet.quantity || "0"}}</span>
+      <h3 class="margin-0 pull-left">
+        <ins translate="your-cart"></ins>
+        <small>(
+          <ins translate="subtotal:"></ins>
+          )
+        </small>
+      </h3>
+    </div>
+    <div class="pull-right">
+      <ute-currency class="ute-price ute-price-secondary" font-size="3rem" frequency="global.label.priceFrequency.{{totalPriceFrequency}}" price="{{cartItems.total.sub}}"></ute-currency>
+    </div>
+  </div>
+
+  <!-- if cart's empty -->
+  <div class="row" ng-show="!cartItems || cartItems.quantity === 0">
+    <div class="col-xs-12">
+      <p class="empty-cart text-center">
+        <ins translate="global.message.emptyCart"></ins>
+      </p>
+    </div>
+  </div>
+
+  <!-- if there's anything in the cart -->
+  <div class="row" ng-show="cartItems.quantity > 0">
+    <!-- <div class="row">
+       <div class="cart-product-heading">
+         <div class="title"><h5>Internet{{cartItems[lang].services.internet.tier.name}}</h5></div>
+       </div>
+     </div>-->
+    <div class="mini-cart-items">
+      <div class="row cart-line-item-product" ng-repeat="item in cartItems[lang].services.internet.tier">
+        <div ng-repeat="product in item.products">
+          <div class="" ng-repeat="offer in product.offers">
+            <!-- <p class="pull-left copy-1">{{item.name}}</p>-->
+            <h5 class="pull-left">Internet{{cartItems[lang].services.internet.tier.name}}</h5>
+            <button type="button" class="minus pull-right" ng-click="removeOfferFromCart(tier.tierId, product.id, offer.offerId)"><span class="ute-icon-circle-solid-minus"></span>remove!!!</button>
+            <ute-currency class="ute-price ute-price-tertiary pull-right" font-size="2.4rem" frequency="global.label.priceFrequency.{{offer.offerPrice.priceFrequency}}" price="{{offer.offerPrice.price}}"></ute-currency>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row cart-actions">
+      <div class="col-xs-12 text-center">
+        <a ng-if="isCartSummary()" class="ute-btn-primary ute-xs" ng-click="checkout()">
+          <ins translate="checkout"></ins>
+        </a>
+        <a ui-sref="cartSummary" ng-if="!isCartSummary()" class="ute-btn-primary ute-xs" ng-click="hide()">
+          <ins translate="view-cart"></ins>
+        </a>
+      </div>
+    </div>
+  </div>
+  <button ng-click="hide()" type="button" class="close pull-right"><span class="ute-icon-details-indicator  ute-icon-bg-light"></span></button>
+</div>

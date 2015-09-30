@@ -33,6 +33,14 @@ config.externalGulpTasks = [
     description: ''
   },
   {
+    name: 'build-1-file',
+    description: ''
+  },
+  {
+    name: 'build-2-files',
+    description: ''
+  },
+  {
     name: 'copy-bower',
     description: ''
   },
@@ -42,6 +50,10 @@ config.externalGulpTasks = [
   },
   {
     name: 'copy-js',
+    description: ''
+  },
+  {
+    name: 'copy-views',
     description: ''
   },
   {

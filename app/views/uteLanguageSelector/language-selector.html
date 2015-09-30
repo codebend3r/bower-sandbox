@@ -1,0 +1,6 @@
+\<div class='language-selector' ng-click="changeLanguage()">
+  <span class="lang-{{acr | lowercase}} text-uppercase" ng-repeat="(acr,name) in languages">{{ acr | uppercase }}</span>
+  <button class='btn btn-default active' type='button' ute-language-selector='{{rui.language | lowercase}}'>
+    <span class='language-abbrv'></span>
+  </button>
+</div>

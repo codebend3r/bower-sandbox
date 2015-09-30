@@ -1,0 +1,23 @@
+<div id="confirm-internet-package-update" aria-labelledby="paymentSuccess" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="cancel()">
+      <span aria-hidden="true"><span class="ute-icon-circle-x"></span></span>
+    </button>
+    <h4 class="modal-title header-3 modal-margin-top">
+      <ins translate="global.label.updateInternetConfirm"></ins>
+    </h4>
+  </div>
+  <div class="modal-body" ute-tracking="eclipse-pageload-9">
+    <p>
+      <ins translate="please-note-only-one-internet-package" translate-values="{ package1: '{{ oldPackage }}', package2: '{{ newPackage }}' }"></ins>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <a class="ute-link uppercase clickable" ng-click="cancel()" ute-tracking="eclipse-click-18">
+      <ins translate="global.cta.cancel"></ins>
+    </a>
+    <button type="button" class="ute-btn-primary ute-md" ng-click="ok()" ute-tracking="eclipse-click-19">
+      <ins translate="update-cart"></ins>
+    </button>
+  </div>
+</div>
