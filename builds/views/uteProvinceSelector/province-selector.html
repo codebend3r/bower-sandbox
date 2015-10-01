@@ -1,0 +1,14 @@
+<div>
+  <a aria-expanded="false" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">{{ selectedProvince | uppercase }} <i class="ute-icon-circle-down"></i></a>
+  <ul role="menu" class="dropdown-menu">
+    <li class="region-header">Select A Province</li>
+    <li ng-repeat="(index, province) in provinces" ng-class="{ active: province === selectedProvince }">
+      <a id="{{province | uppercase}}" name="{{province | uppercase}}" href="#" ng-click="saveProvince(province)">
+        <ins translate="global.province.{{province}}.name"></ins>
+      </a>
+    </li>
+  </ul>
+  <select ng-change="saveProvince(selectedProvince)" ng-model="selectedProvince" ng-selected="province==selectedProvince" ng-options="province for province in provinces">
+    <!-- <option  value="{{province}}" ng-repeat="(index, province) in provinces" >{{province}}</option>-->
+  </select>
+</div>

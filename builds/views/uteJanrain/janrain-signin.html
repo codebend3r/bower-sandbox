@@ -1,0 +1,514 @@
+<!-- signIn:
+This is the starting point for sign in and registration. This screen is
+rendered by default. In order to change this behavior, the Flow must be
+edited.
+-->
+<div style="display:none;" id="signIn">
+  <div class="capture_header">
+    <h4 class="modal-title header-3">
+      <ins translate="login"></ins>
+    </h4>
+  </div>
+  <div class="capture_signin">
+
+    <div id="capture_signIn_signInForm_successMessages" style="display:none;">
+      <div class="capture_form_success"></div>
+    </div>
+    {* #signInForm *}
+    {* userID *}
+    {* currentPassword *}
+    <div class="capture_form_item">
+      <a data-capturescreen="forgotPassword">
+        <ins translate="forgot-password"></ins>
+        ?</a>
+    </div>
+    <div class="capture_rightText">
+      <button class="capture_secondary capture_btn capture_primary" type="{{'submit' | translate}}"><span class="janrain-icon-16 janrain-icon-key"></span>
+        <ins translate="login-button"></ins>
+      </button>
+      <p class="clearfix">
+        <ins translate="new-to-fido"></ins>
+        <a id="capture_signIn_createAccountButton" data-capturescreen="traditionalRegistration" class="capture_secondary capture_createAccountButton capture_btn capture_primary">
+          <ins translate="register-now"></ins>
+        </a></p>
+    </div>
+    {* /signInForm *}
+  </div>
+</div>
+
+<div style="display:none;" id="forgotPassword">
+  <div id='forgotPasswordForm'>
+    <div class="capture_header">
+      <h4 class="modal-title header-3">
+        <ins translate="login-forgotpswd-create-new"></ins>
+      </h4>
+    </div>
+    {* #forgotPasswordForm *}
+    <p class="modal-forgot-password-prompt">
+      <ins translate="login-forgotpswd-enter-username"></ins>
+    </p>
+    {* resetPasswordUserID *}
+    <div class="capture_footer">
+      <div class="capture_left">
+        {* backButton *}
+      </div>
+      <div class="capture_right">
+        <input value="{{'global.cta.continue' | translate}}" type="submit" id='forgotFormSubmit' class="capture_btn capture_primary" onclick='validateForgotPassword(event)'>
+        <!-- <input value="Submit" type='button' id='forgotFormButton' class="capture_btn capture_primary" onclick='validateForgotPassword()' > onclick='validateForgotPassword(event)' -->
+      </div>
+    </div>
+    {* /forgotPasswordForm *}
+  </div>
+
+  <div id='forgotPasswordGroupFailure' style="display:none;">
+    <div class="capture_header">
+      <h4 class="modal-title header-3">
+        <ins translate="group-id-password"></ins>
+      </h4>
+    </div>
+    <p>
+      <ins translate="please-chat-customer-agent-reset-password"></ins>
+    </p>
+  </div>
+
+</div>
+
+<!-- forgotPasswordSuccess:
+  When the user submits an email address on the forgotPassword screen,
+  this screen is rendered.
+-->
+<div style="display:none;" id="forgotPasswordSuccess">
+  <div class="capture_header">
+    <h4 class="modal-title header-3">
+      <ins translate="password-reset-sent-success-header"></ins>
+    </h4>
+  </div>
+  <p>
+    <ins translate="password-reset-sent-success"></ins>
+  </p>
+  <div class="capture_footer">
+    <a onclick="janrain.capture.ui.modal.close()" class="capture_btn capture_primary">
+      <ins translate="global.cta.close"></ins>
+    </a>
+  </div>
+</div>
+
+<!-- returnTraditional:
+This is the screen the user sees in place of the signIn screen if they've
+already signed in with a traditional account on this site. Rendering of this
+screen is defined in the Flow only when the 'janrainLastAuthMethod' cookie
+is set to'traditionalSignin'.
+-->
+<div style="display:none;" id="returnTraditional">
+  <div class="capture_header">
+    <h4 class="modal-title header-3">
+      Sign In
+    </h4>
+  </div>
+  <h4 class="capture_centerText"><span id="traditionalWelcomeName">Welcome back!</span></h4>
+  <div class="capture_backgroundColor">
+    {* #signInForm *}
+    {* userID *}
+    {* currentPassword *}
+    <div class="capture_form_item capture_rightText">
+      <button class="capture_secondary capture_btn capture_primary" type="submit"><span class="janrain-icon-16 janrain-icon-key"></span> Sign In</button>
+    </div>
+    {* /signInForm *}
+    <div class="capture_centerText switchLink"><a data-cancelcapturereturnexperience="true">Use another account</a></div>
+  </div>
+</div>
+
+<!-- accountDeactivated:
+  This screen is rendered if the user's account is deactivated. Screen
+  rendering is handled in janrain-init.js.
+-->
+<div style="display:none;" id="accountDeactivated">
+  <div class="capture_header">
+    <h4 class="modal-title header-3">
+      Deactivated Account
+    </h4>
+  </div>
+  <div class="content_wrapper">
+    <p>
+      <ins translate="login-account-locked"></ins>
+    </p>
+  </div>
+  <div class="text-right">
+    <button class="ute-btn-primary ute-sm" onclick="janrain.capture.ui.renderScreen('signIn');">
+      <ins translate="global.cta.okay"></ins>
+    </button>
+  </div>
+</div>
+
+<!--
+============================================================================
+  REGISTRATION SCREENS:
+  The following screens are part of the registration user workflow. For a
+  complete out-of-the-box registration experience, these screens must be
+  included on the page where you are implementing sign in and
+  registration.
+============================================================================
+-->
+
+<!-- traditionalRegistration:
+  When a user clicks the 'Create Account' button this screen is rendered.
+-->
+<div style="display:none;" id="traditionalRegistration">
+  <div class="capture_header">
+    <h4 class="modal-title header-3">
+      <ins translate="registration"></ins>
+    </h4>
+    <div class="registration-please-confirm">
+      <ins translate="registration-please-confirm"></ins>
+    </div>
+  </div>
+  {* #registrationForm *}
+  {* emailAddress *}
+  {* emailConfirm *}
+  {* newPassword *}
+  <div class="ute-message">
+    <ins translate="registration-password-criteria"></ins>
+  </div>
+  <!-- <ins translate="registration-password-criteria"></ins> -->
+  {* newPasswordConfirm *}
+  {* securityQuestion *}
+  {* securityAnswer *}
+  <!-- hidden fields -->
+  {* msisdn *}
+  <div class="capture_footer">
+    <div class="capture_left">
+      <a class="ute-link ute-sm text-uppercase" onclick="janrain.capture.ui.renderScreen('signIn')">
+        <ins translate="global.cta.cancel"></ins>
+      </a>
+    </div>
+    <div class="capture_right">
+      <input value="{{'global.cta.continue' | translate}}" type="submit" class="capture_btn capture_primary">
+    </div>
+  </div>
+  {* /registrationForm *}
+</div>
+
+<!-- emailNotVerified:
+  This screen is rendered if a user attempts to login with an unverified
+  email address.
+-->
+<div style="display:none;" id="emailNotVerified">
+  <div class='thankYouRegisteration' style="display:none;">
+    <!-- N.B.
+      <span id="emailRegisteredRecently"></span>, to which the Janrain e-mail is bound, is part of the property value of the property name "sign-up-thank-you-note", which can be found in the language JSON files.
+    -->
+    <ins translate="sign-up-thank-you-note"></ins>
+    <div class="text-right">
+      <button class="ute-btn-primary ute-sm" onclick="janrain.capture.ui.renderScreen('signIn');">
+        <ins translate="cool"></ins>
+      </button>
+    </div>
+  </div>
+
+  <div class='emailVerifiedForm' style="display:none;">
+    <div class="capture_header">
+      <h4 class="modal-title header-3">
+        <ins translate="please-validate-email"></ins>
+      </h4>
+    </div>
+    <p>
+      <ins translate="your-email"></ins>
+      <strong class='notVerifiedEmail'></strong>
+      <ins translate="has-not-been-validated"></ins>
+    </p>
+    <p>
+      <ins translate="check-email-validation-link"></ins>
+      {* #resendVerificationForm *}
+    <div style='display:none'> {* signInEmailAddress *}</div>
+    <input value="{{'send-me-link' | translate}}" type="submit" class="capture_btn">
+
+    {* /resendVerificationForm *}</p>
+    <p>
+      <ins translate="login-not-email-address"></ins>
+    </p>
+  </div>
+</div>
+
+<!--
+============================================================================
+  EMAIL VERIFICATION SCREENS:
+  The following screens are part of the email verification user workflow.
+  For a complete out-of-the-box email verification experience, these
+  screens must be included on page where you are implementing email
+  verification.
+============================================================================
+-->
+
+<!-- verifyEmail:
+  This is the landing screen after a user clicks on the link in the
+  verification email sent to the user when they've registered with a
+  non-verified email address.
+
+  HOW IT WORKS: The code that is generated by Capture and included in the
+  link sent in the verification email is sent to the server and, if valid,
+  the user's email will be marked as valid and the verifyEmailSuccess
+  screen will be rendered. If the code is not accepted for any reason,
+  the verifyEmail screen is shown and the user has another opportunity
+  to have the verification email sent to them.
+
+  NOTE: The links generated in the emails sent to users are based on
+  Capture settings found in Janrain's Capture Dashboard. In addition to
+  entering the URL of your email verification page, you will need to add
+  'screenToRender' as a parameter in the URL with a value of 'verifyEmail'
+  which is this screen.
+-->
+<div style="display:none;" id="verifyEmail">
+  <div class="capture_header">
+    <h4 class="modal-title header-3">
+      Resend Email Verification
+    </h4>
+  </div>
+  <p>Sorry we could not verify that email address. Enter your email below and we'll send you another email.</p>
+  {* #resendVerificationForm *}
+  {* signInEmailAddress *}
+  <div class="capture_footer">
+    <input value="Submit" type="submit" class="capture_btn capture_primary">
+  </div>
+  {* /resendVerificationForm *}
+</div>
+
+<!-- resendVerificationSuccess:
+  This screen is rendered when a user enters an email address from the
+  verifyEmail screen.
+-->
+<div style="display:none;" id="resendVerificationSuccess">
+  <div class="capture_header">
+    <h4 class="modal-title header-3">
+      <ins translate="thanks-for-signing"></ins>
+    </h4>
+  </div>
+  <div class="hr"></div>
+  <p>
+    <ins translate="we-have-sent-email"></ins>
+    <span id="resendVerificationEmail"></span>.
+    <ins translate="please-check-email-activate"></ins>
+  </p>
+  <div class="capture_footer">
+    <button onclick="janrain.capture.ui.modal.close()">
+      <ins translate="global.cta.close"></ins>
+    </button>
+  </div>
+</div>
+
+<!-- verifyEmailSuccess:
+  This screen is rendered if the verification code provided in the link
+  sent to the user in the verification email is accepted and the user's
+  email address has been verified.
+-->
+<div style="display:none;" id="verifyEmailSuccess">
+  <div class="capture_header">
+    <h4 class="modal-title header-3">
+      You did it!
+    </h4>
+  </div>
+  <p>Thank you for verifiying your email address.</p>
+  <div class="capture_footer">
+    <a href="../../../index.html" class="capture_btn capture_primary">Sign in</a>
+  </div>
+</div>
+
+<!--
+============================================================================
+  RESET PASSWORD SCREENS:
+  The following screens are part of the password reset user workflow.
+  For a complete out-of-the-box password reset experience, these screens
+  must be included on the page where you are implementing password reset
+  functionality.
+
+  NOTE: The order in which these screens are rendered is as follows:
+  resetPasswordRequestCode
+  resetPasswordRequestCodeSuccess
+  resetPassword
+  resetPasswordSuccess
+============================================================================
+-->
+
+<!-- resetPassword:
+  This screen is rendered when the user clicks the link in provided in the
+  password reset email and the code in the link is valid.
+-->
+<div style="display:none;" id="resetPassword">
+  <div class="capture_header">
+    <h4 class="modal-title header-3">
+      Change password
+    </h4>
+  </div>
+  {* #changePasswordFormNoAuth *}
+  {* newPassword *}
+  {* newPasswordConfirm *}
+  <div class="capture_footer">
+    <input value="Submit" type="submit" class="capture_btn capture_primary">
+  </div>
+  {* /changePasswordFormNoAuth *}
+</div>
+
+<!-- resetPasswordSuccess:
+  This screen is rendered when the user successfully changes their
+  password from the resetPassword screen.
+-->
+<div style="display:none;" id="resetPasswordSuccess">
+  <div class="capture_header">
+    <h4 class="modal-title header-3">
+      Your password has been changed
+    </h4>
+  </div>
+  <p>Password has been successfully updated.</p>
+  <div class="capture_footer">
+    <a href="../../../index.html" class="capture_btn capture_primary">Sign in</a>
+  </div>
+</div>
+
+<!-- resetPasswordRequestCode:
+  This is the landing screen for the password reset workflow. When the
+  user clicks the link provided in the reset password email, a code is
+  supplied and is passed to Capture for verification. If the code is valid
+  the resetPassword screen is rendered immediately and the content of
+  this screen is not presented. If the code is not accepted for any reason
+  this screen is then presented, allowing the user to re-enter their
+  email address.
+-->
+<div style="display:none;" id="resetPasswordRequestCode">
+  <div class="capture_header">
+    <h4 class="modal-title header-3">
+      <ins translate="login-forgotpswd-create-new"></ins>
+    </h4>
+  </div>
+  <p>We didn't recognize that password reset code. Enter your email address to get a new one.</p>
+  {* #resetPasswordForm *}
+  {* resetPasswordUserID *}
+  <div class="capture_footer">
+    <input value="Send" type="submit" class="capture_btn capture_primary">
+  </div>
+  {* /resetPasswordForm *}
+</div>
+
+<!-- resetPasswordRequestCodeSuccess:
+  This screen is rendered if the user submitted an email address on the
+  resetPasswordRequestCode screen.
+-->
+<div style="display:none;" id="resetPasswordRequestCodeSuccess">
+  <div class="capture_header">
+    <h4 class="modal-title header-3">
+      <ins translate="login-forgotpswd-create-new"></ins>
+    </h4>
+  </div>
+  <p>We've sent an email with instructions to create a new password. Your existing password has not been changed.</p>
+  <div class="capture_footer">
+    <a onclick="janrain.capture.ui.modal.close()" class="capture_btn capture_primary">Close</a>
+  </div>
+</div>
+
+<!--
+============================================================================
+  EDIT PROFILE SCREENS:
+  The following screens are part of the profile editing user workflow.
+  For a complete out-of-the-box profile editing experience, these screens
+  must be included on the page where you are implementing profile editing
+  functionality.
+============================================================================
+-->
+
+<div style="display:none;" id="confirmAccountDeactivation">
+  <div class="capture_header">
+    <h4 class="modal-title header-3">
+      Deactivate your Account
+    </h4>
+  </div>
+  <div class="content_wrapper">
+    <p>Are you sure you want to deactivate your account? You will no longer have access to your profile.</p>
+    {* deactivateAccountForm *}
+    <div class="capture_footer">
+      <input value="Yes" type="submit" class="capture_btn capture_primary">
+      <a id="capture_confirmAccountDeactivation_noButton" onclick="janrain.capture.ui.modal.close()" class="capture_btn capture_primary">No</a>
+    </div>
+    {* /deactivateAccountForm *}
+  </div>
+</div>
+
+<!--
+============================================================================
+  MERGE ACCOUNT SCREENS:
+  The following screens are part of the account merging user workflow. For
+  a complete out-of-the-box account merging experience, these screens must
+  be included on the page where you are implementing account merging
+  functionality.
+============================================================================
+-->
+
+<!-- mergeAccounts:
+  This screen is rendered if the user created their account through
+  traditional registration and then tries to sign in with an IDP that
+  shares the same email address that exists in their user record.
+
+  NOTE! You will notice special tags you see on this screen. These tags,
+  such as '{| current_displayName |}' are rendered by the Janrain Capture
+  Widget in a way similar to JTL tags, but are more limited. We currently
+  only support modifying the text in this screen through the Flow. You
+  can, however, add your own markup and text throughout this screen as you
+  see fit.
+-->
+<div style="display:none;" id="mergeAccounts">
+  {* mergeAccounts {"custom": true} *}
+  <div id="capture_mergeAccounts_mergeAccounts_mergeOptionsContainer" class="capture_mergeAccounts_mergeOptionsContainer">
+    <div class="capture_header">
+      <div class="capture_icon_col">
+        {| rendered_current_photo |}
+      </div>
+      <div class="capture_displayName_col">
+        {| current_displayName |}<br/>
+        {| current_emailAddress |}
+      </div>
+      <span class="capture_mergeProvider janrain-provider-icon-24 janrain-provider-icon-{| current_provider_lowerCase |}"></span>
+    </div>
+    <div class="capture_dashed">
+      <div class="capture_mergeCol capture_centerText capture_left">
+        <p class="capture_bigText">{| foundExistingAccountText |} <b>{| current_emailAddress |}</b>.</p>
+        <div class="capture_hover">
+          <div class="capture_popup_container">
+            <span class="capture_popup-arrow"></span>{| moreInfoHoverText |}<br/>
+            {| existing_displayName |} - {| existing_provider |} : {| existing_siteName |} {| existing_createdDate |}
+          </div>
+          {| moreInfoText |}
+        </div>
+      </div>
+      <div class="capture_mergeCol capture_mergeExisting_col capture_right">
+        <div class="capture_shadow capture_backgroundColor capture_border">
+          {| rendered_existing_provider_photo |}
+          <div class="capture_displayName_col">
+            {| existing_displayName |}<br/>
+            {| existing_provider_emailAddress |}
+          </div>
+          <span class="capture_mergeProvider janrain-provider-icon-16 janrain-provider-icon-{| existing_provider_lowerCase |} "></span>
+          <div class="capture_centerText capture_smallText">Created {| existing_createdDate |} at {| existing_siteName |}</div>
+        </div>
+      </div>
+    </div>
+    <div id="capture_mergeAccounts_form_collection_mergeAccounts_mergeRadio" class="capture_form_collection_merge_radioButtonCollection capture_form_collection capture_elementCollection capture_form_collection_mergeAccounts_mergeRadio" data-capturefield="undefined">
+      <div id="capture_mergeAccounts_form_item_mergeAccounts_mergeRadio_1_0" class="capture_form_item capture_form_item_mergeAccounts_mergeRadio capture_form_item_mergeAccounts_mergeRadio_1_0 capture_toggled" data-capturefield="undefined">
+        <label for="capture_mergeAccounts_mergeAccounts_mergeRadio_1_0">
+          <input id="capture_mergeAccounts_mergeAccounts_mergeRadio_1_0" data-capturefield="undefined" data-capturecollection="true" value="1" type="radio" class="capture_mergeAccounts_mergeRadio_1_0 capture_input_radio" checked="checked" name="mergeAccounts_mergeRadio">
+          {| connectLegacyRadioText |}
+        </label>
+      </div>
+      <div id="capture_mergeAccounts_form_item_mergeAccounts_mergeRadio_2_1" class="capture_form_item capture_form_item_mergeAccounts_mergeRadio capture_form_item_mergeAccounts_mergeRadio_2_1" data-capturefield="undefined">
+        <label for="capture_mergeAccounts_mergeAccounts_mergeRadio_2_1">
+          <input id="capture_mergeAccounts_mergeAccounts_mergeRadio_2_1" data-capturefield="undefined" data-capturecollection="true" value="2" type="radio" class="capture_mergeAccounts_mergeRadio_2_1 capture_input_radio" name="mergeAccounts_mergeRadio">
+          {| createRadioText |} {| current_provider |}
+        </label>
+      </div>
+      <div class="capture_tip" style="display:none;">
+      </div>
+      <div class="capture_tip_validating" data-elementname="mergeAccounts_mergeRadio">Validating</div>
+      <div class="capture_tip_error" data-elementname="mergeAccounts_mergeRadio"></div>
+    </div>
+    <div class="capture_footer">
+      {| connect_button |}
+      {| create_button |}
+    </div>
+  </div>
+</div>

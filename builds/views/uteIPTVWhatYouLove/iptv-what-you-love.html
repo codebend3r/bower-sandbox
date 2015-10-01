@@ -1,0 +1,50 @@
+<div class="what-you-love-wrapper">
+
+  <div class="tv-channels-you-love-slider" ng-class="{active:channelCount > 0,'show-slider' : toggle}" ng-init="">
+    <div class="tv-channels-count-wrapper">
+            <span class="slide-btn"><button type="button" ng-click="toggle = !toggle"><i class="ute-icon-circle"></i></button></span>
+            <span class="channels-count header-1 ute-color-info">{{channelCount}}</span>
+            <span class="channels-count-txt header-3 ">CHANNELS <br/>YOU LOVE</span>
+    </div>
+    <div class="tv-channels-you-love" ng-if="channelCount > 0">
+      <div class="top-channel-wrapper">
+        <div ng-repeat="channel in selectedShows" class="top-channel tc-{{$index + 1}}" ng-init="key = getChannelName(channel)">
+          <img ute-img="{{imageFolder}}{{channel[key].poster}}" suffix="_portrait" size="" />
+        </div>
+      </div>
+      <div class="top-channel-logo-wrapper">
+        <span ng-repeat="channel in selectedShows" class="selected-channel-logo channel-logo l-{{$index + 1}} l-{{channel[key].channelCode}}" call-sign="{{channel[key].channelCode}}" ng-init="key = getChannelName(channel)"></span>
+      </div>
+    </div>
+    <div class="tv-channels-you-love-details">
+      Based on your selection, we feel  that you would most enjoy this recommended package.
+    </div>
+    <div class="view-package-btn text-right"> <button class="ute-btn-secondary">VIEW PACKAGE</button></div>
+  </div>
+
+</div>
+  
+<div class="wrapper">
+  
+  <!--<pre>Selected Shows: {{selectedShows | json}}</pre>!-->
+  
+  <div class="col-xs-12">
+    
+    <div class="grid">
+
+      <div ng-repeat="channel in channelsList" class="grid-item {{channel.ratio}}" ng-init="selected = isThisAnObject(selectedShows[channel.channel.toLowerCase()][channel.showCode])">
+        <input id="cmn-toggle-{{$index + 1}}" class="cmn-toggle cmn-toggle-round" type="checkbox" ng-model="selected" ng-click="addChannel(channel.channel, channel.tvShow, imgList[$index])">
+        <label for="cmn-toggle-{{$index + 1}}">
+          <img ute-img="{{imageFolder}}{{imgList[$index]}}" suffix="_{{channel.ratio}}" size="" />
+          <span class="strip">
+            <span class="tv-poster-title"><span class="love-icon"></span> <span>I LOVE</span><span class="channel-logo" call-sign="{{channel.channel}}"></span></span>
+            <span class="tv-poster-detail">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi cumque, dignissimos eum quas qui recusandae sapiente sed voluptatem. Minima.</span>
+          </span>
+        </label>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

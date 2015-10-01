@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta name="viewport" id="device-viewport" content="width=device-width,initial-scale=1">
-  <title>LiveSite PoC</title>
+  <title>LiveSite - livesite and bower (2 js files)</title>
   <!-- build:css css/ute.ui.livesite.css -->
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="bower_components/ute-ui/dist/css/ute.ui.css">
@@ -15,10 +15,10 @@
 
 <body ng-app="ute.ui.livesite" ute-restive>
 
-<div>
+<div class="container">
   <h2>Livesite</h2>
   <div class="col-xs-12">
-    <ute-header></ute-header>
+    <ute-header is-cms="true"></ute-header>
   </div>
 </div>
 
@@ -38,7 +38,6 @@
 <script src="bower_components/angular-moment/angular-moment.js"></script>
 <script src="bower_components/angular-translate/angular-translate.js"></script>
 <!-- endbuild -->
-
 <!-- build:js js/ute.ui.livesite.js -->
 <script src="bower_components/ute-ui/dist/livesite/js/ute.ui.livesite.js"></script>
 <script src="bower_components/ute-ui/dist/livesite/js/ute.ui.livesite.tmpl.js"></script>
