@@ -9,6 +9,7 @@ module.exports = function (gulp, plugins, config, gutil) {
    */
   return function (callback) {
     return runSequence(
+      'clean-build',
       'build-gui',
       'watch',
       'browser-sync',

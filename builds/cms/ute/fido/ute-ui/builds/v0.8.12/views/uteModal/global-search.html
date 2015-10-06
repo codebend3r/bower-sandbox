@@ -1,0 +1,38 @@
+<div class="modal-header">
+  <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="ute-icon-circle-x"></span></span>
+  </button>
+  <h2 class="modal-title">What are you looking for?</h2>
+</div>
+
+<div class="modal-body" data-ng-app="typeahead" data-ng-controller="typeAheadCtrl" id="modal-search" data-config-service="/fido/data/search-samsung.json" />
+<form id="modal-search-form" method="GET" action="search.shtml" autocomplete="off">
+<input type="text" 
+name="q" 
+placeholder="Ask us!"
+data-ng-model="criteria" />
+<div class="rui-searchbox-submit">
+<i class="rui-icon-search"></i>
+<input type="submit" value="Search" />
+</div>
+<div class="rui-ngtypeahead">
+<h4 data-ng-if="results.links.length > 0">Related Searches</h4>
+<ul class="links">
+<li data-ng-repeat="link in results.links track by $index" data-ng-if="$index < max.links">
+<a href="{{urls.search + link.label}}" alt="{{link.label}}">{{link.label}}</a>
+</li>
+</ul>
+<h4 data-ng-if="results.quicklinks.length > 0">Quick Links</h4>
+<ul class="related">
+<li data-ng-repeat="link in results.quicklinks track by $index" data-ng-if="$index < max.quicklinks">
+<a href="{{link.navigationState}}" alt="{{link.label}}">
+<img src="" />
+<span data-ng-bind-html="link.label | to_trusted"></span>
+</a>
+</li> 
+</ul>
+</div>
+</form>
+</div>
+
+<div class="modal-footer">
+</div>

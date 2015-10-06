@@ -1,0 +1,276 @@
+<script>
+  $('document').ready(function(){
+    if(!$("[ute-province-services~='iptv']").length){
+      $(".has-iptv-show").remove();
+    }
+  });
+</script>
+<style>
+  [ute-province-services~="iptv"] #header #nav-main li.has-iptv-show    {display:inline-block !important;}
+</style>
+<header role="banner" class="navbar navbar-fixed-top  module-nav copy-3" ng-class="[headerTypeClass()]">
+  <div ng-switch on='headerType'>
+    <div ng-switch-default>
+      <div id="oldBrowserMsg" style="display: none">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <div id="oldBrowserMsgShort">
+                <p>
+                  We noticed that you're not using the latest version of your browser. You'll still be able to use
+                  our site, but it might not work or look the way it's supposed to. We recommend upgrading your browser.
+                  <a target="_blank" href="http://www.mozilla.org/en-US/firefox/new/">Firefox</a>,
+                  <a target="_blank" href="https://www.google.com/intl/en/chrome/browser/">Chrome</a>,
+                  <a target="_blank" href="http://support.apple.com/downloads/#safari">Safari</a>,
+                  <a target="_blank" href="http://www.opera.com/download">Opera</a>
+                  or the <a target="_blank" href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">latest version of Internet Explorer</a>.
+                  [<a href="#" class="oldBrowserToggle">details</a>]
+                </p>
+              </div>
+              <div id="oldBrowserMsgLong">
+                <p>We noticed that you're not using the latest version of Internet Explorer. You'll still be able to use our site,
+                  but it might not work or look the way it's supposed to. We recommend upgrading your browser.
+                </p>
+
+                <p>Click on an icon below to download the latest version of Internet Explorer or another browser now.</p>
+
+                <div class="options">
+                  <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie" target="_blank">
+                    <img src="http://www.rogers.com/cms/images/en/Common/Logos/ie_y_70x60.jpg" alt="Internet Explorer">
+                    <span>Internet&nbsp;Explorer</span>
+                  </a>
+                  <a href="http://www.mozilla.org/en-US/firefox/new/" target="_blank">
+                    <img src="http://www.rogers.com/cms/images/en/Common/Logos/ff_y_70x60.jpg" alt="Firefox">
+                    <span>Firefox</span>
+                  </a>
+                  <a href="https://www.google.com/intl/en/chrome/browser/" target="_blank">
+                    <img src="http://www.rogers.com/cms/images/en/Common/Logos/chrome_y_70x60.jpg" alt="Chrome">
+                    <span>Chrome</span>
+                  </a>
+                  <a href="http://support.apple.com/downloads/#safari" target="_blank">
+                    <img src="http://www.rogers.com/cms/images/en/Common/Logos/safari_y_70x60.jpg" alt="Safari">
+                    <span>Safari</span>
+                  </a>
+                  <a href="http://www.opera.com/download" target="_blank">
+                    <img src="http://www.rogers.com/cms/images/en/Common/Logos/opera_y_70x60.jpg" alt="Opera">
+                    <span>Opera</span>
+                  </a>
+                </div>
+                <p>If you're unable to download the latest version of Internet Explorer, please ensure you have compatibility view turned off.</p>
+
+                <p>
+                  <strong>How to disable compatibility view</strong>
+                </p>
+                <ol>
+                  <li>Open Internet Explorer.</li>
+                  <li>Click on the <strong>Tools</strong> menu (you may have to press <em>Alt</em> to bring up the menu).</li>
+                  <li>If the <strong>Compatibility View</strong> box is checked, click to remove checkmark.</li>
+                  <li>Click <strong>Tools</strong> again.</li>
+                  <li>
+                    Select <strong>Compatibility View Settings</strong>.
+                    <ul>
+                      <li>Make sure "rogers.com" is not listed under "Websites you've added to Compatibility View."</li>
+                    </ul>
+                  </li>
+                  <li>Close and reopen Internet Explorer.</li>
+                  <li>Go to rogers.com.</li>
+                </ol>
+                <a href="#" class="oldBrowserToggle">[close]</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ute-nav-agent">
+        <div class="container">
+          <div ng-if="ruiMethods.user.is.agent()" class="user-status">
+            <div>Agent Logged in : <span>{{ruiMethods.agent.name()}}</span></div>
+            <div>
+              <div class="pull-left"> Session Time Remaining
+                <timer end-time="userInfo.expiry" ng-if="userInfo.expiry" max-time-unit="second">{{mminutes}}:{{sseconds}}</timer>
+              </div>
+              <div class="pull-left ute-agent-nav-links"><a ng-href="{{ ruiMethods.agent.homeURL() }}"><ins translate="agent-home-page"></ins></a> | <a class="user-sign-out" ng-click="ruiMethods.agent.signOut();">
+                <ins translate='sign-out'></ins>
+              </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="header" class="ute-nav-primary">
+        <div class="container">
+          <div class="navbar-header">
+            <button id="mobile-menu-btn" ng-class="{'collapsed': !mobileNavOpen }" ng-click="ruiMethods.toggleMobileMenu()" type="button" class="navbar-toggle" title="Menu">
+              <span class="sr-only">Toggle navigation</span>
+              <i class="ute-icon-mobile-menu"></i>
+            </button>
+            <a href="#/" class="navbar-brand" title="fido">fido</a>
+          </div>
+          <div class="shadow"></div>
+          <nav class="navbar-collapse bs-navbar-collapse" id="main-menu" ng-class="{'in': mobileNavOpen }">
+            <ul class="nav navbar-nav" id="nav-main">
+              <li class="visible-xs"><a href="/web/content/store-locator">FIND A STORE</a></li>
+
+              <!--<li ng-if="!ruiMethods.user.is.agent()" ui-sref-active='active'>
+                <a ui-sref='wireless'>
+                  <ins translate="global.label.wireless"></ins>
+                </a>
+              </li>-->
+
+              <!--Added li to maintain appearance-->
+              <li ui-sref-active='active' class="nav-my-account">
+                <a ng-show="!ruiMethods.user.is.agent()" href="http://www.fido.ca/web/content/whatsnew/shoplanding">
+                  <ins translate="global.label.mobile"></ins>
+                </a>
+                <a ng-show="ruiMethods.user.is.agent()" class="ute-col-secondary uppercase">
+                  <ins translate="global.label.mobile"></ins>
+                </a>
+                 <div ng-show="!ruiMethods.user.is.agent()" class="active ute-nav-secondary nav-secondary-left-arrow container">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <ul class="header-4">
+                        <li><a href='http://www.fido.ca/web/page/portal/Fido/devices'><ins translate="global.label.phonesDevices"></ins></a></li>
+                        <li><a href="http://www.fido.ca/web/page/portal/Fido/MonthlyPlans"><ins translate="global.label.plans"></ins></a></li>
+                        <li><a href="http://www.fido.ca/web/page/portal/Fido/FidoData"><ins translate="global.label.data"></ins></a></li>
+                        <li><a href="http://www.fido.ca/web/page/portal/Fido/FidoHomePhone"><ins translate="global.label.homePhone"></ins></a></li>
+                        <li><a href="http://www.fido.ca/web/page/portal/Fido/FidoTravel"><ins translate="global.label.travel"></ins></a></li>
+                        <li><a href="http://www.fido.ca/web/page/portal/Fido/PrepaidPlans?forwardTo=prepaidPlans"><ins translate="global.label.prepaid"></ins></a></li>
+                        <li><a href="http://www.fido.ca/web/page/portal/Fido/SmartCard"><ins translate="global.label.simCards"></ins></a></li>
+                        <li><a href="http://www.fido.ca/web/page/portal/Fido/Accessories"><ins translate="global.label.accessories"></ins></a></li>
+                        <li><a href="http://www.fido.ca/web/page/portal/Fido/FidoOptions"><ins translate="global.label.addOns"></ins></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li ui-sref-active='active' ng-if="ruiMethods.user.is.loggedIn() && commonService.customerHasInternetService && commonService.internetSubscriberNo">
+                <a ui-sref='myAccount.internet({accountNumber: commonService.internetAccountNumber, subscriberNo: commonService.internetSubscriberNo})' ute-tracking="eclipse-click-1">
+                  <ins translate="global.label.internet"></ins>
+                </a>
+              </li>
+              <li ui-sref-active='active' ng-if="!(ruiMethods.user.is.loggedIn() && commonService.customerHasInternetService && commonService.internetSubscriberNo)">
+                <a ui-sref='internet' ute-tracking="eclipse-click-1">
+                  <ins translate="global.label.internet"></ins>
+                </a>
+              </li>
+              <li ui-sref-active='active' class="has-iptv-show" ng-if="ruiMethods.user.is.agent() == false && ruiMethods.user.is.loggedIn() && commonService.customerHasTVService && commonService.tvSubscriberNo">
+                <a ui-sref='myAccount.tv({accountNumber: commonService.tvAccountNumber, subscriberNo: commonService.tvSubscriberNo})'>
+                  <ins translate="global.label.tv"></ins>
+                </a>
+              </li>
+              <li ui-sref-active='active' class="has-iptv-show" ng-if="!(ruiMethods.user.is.agent() == false && ruiMethods.user.is.loggedIn() && commonService.customerHasTVService && commonService.tvSubscriberNo)">
+                <a ui-sref='tv'>
+                  <ins translate="global.label.tv"></ins>
+                </a>
+              </li>
+              <li ui-sref-active='active'>
+                <a ui-sref='rewards'>
+                  <ins translate="global.label.promos"></ins>
+                </a>
+              </li>
+              <li ui-sref-active='active'>
+                <a ui-sref='support'>
+                  <ins translate="global.label.support"></ins>
+                </a>
+              </li>
+              <li class="nav-my-account" ng-show="ruiMethods.showMyAccountLink()" ui-sref-active='active'>
+                <a ui-sref='{{getMyaccountLink()}}'>
+                  <ins translate="global.label.myAccount"></ins>
+                  <i class="ute-icon-circle-down visible-xs"></i>
+                </a>
+                <div ng-class="{'active':(ruiMethods.user.is.loggedIn() && !$root.userInfo.janrainOnlylogin===true) || ruiMethods.user.is.agent()}" class="ute-nav-secondary container">
+                  <div class="row">
+                    <div class="col-sm-2 hidden-xs">
+                      <h4 class="uppercase"><ins translate="global.label.myAccount"></ins></h4>
+                    </div>
+                    <div class="col-sm-9">
+                      <ul class="header-4">
+                        <li><a ui-sref='myAccount.overview' ui-sref-active="active"><ins translate="global.label.overview"></ins></a></li>
+                        <li><a ui-sref="myAccount.paymentHistory({accountNumber: accountDetails[0].accountNumber})" ui-sref-active="active" ng-show="(accountDetails || []).length>0 && accountDetails[0].accountNumber"><ins translate="global.label.billingPayments"></ins></a></li>
+                        <li class="services"><a ui-sref-active="active" href=""><ins translate="global.label.services"></ins> <i class="ute-icon-circle-down" ng-show="showServiceDropdownIcon"></i></a>
+                          <ul ng-show="showServiceDropdownIcon">
+                            <li ng-show="internetSubscriberNo && (internetAccountStatus!=='CANCELLED' && internetAccountStatus!=='SUSPENDED')"><a ui-sref="myAccount.internet({accountNumber: internetAccountNumber, subscriberNo: internetSubscriberNo})" ui-sref-active="active"><ins translate="global.label.internet"></ins></a></li>
+                            <li ng-show="tvSubscriberNo && (tvAccountStatus!=='CANCELLED' && tvAccountStatus!=='SUSPENDED')"><a ui-sref="myAccount.tv({accountNumber: tvAccountNumber, subscriberNo: tvSubscriberNo})" ui-sref-active="active"><ins translate="global.label.tv"></ins></a></li>
+                            <li ng-show="wirelessSubscriberNo && (wirelessAccountStatus!=='CANCELLED' && wirelessAccountStatus!=='SUSPENDED')"><a ui-sref-active="active"><ins translate="global.label.mobile"></ins></a></li>
+                          </ul>
+                        </li>
+                        <li><a ui-sref="myAccount.viewProfile" ui-sref-active="active"><ins translate="global.label.profile"></ins></a></li>
+                      <!--  <li><a ui-sref="myAccount.internetUsage.notification({accountNumber: internetAccountNumber, subscriberNo: internetSubscriberNo})" ui-sref-active="active" ng-show="internetSubscriberNo||tvSubscriberNo||wirelessSubscriberNo"><ins translate="global.label.notifications"></ins> <span class="badge count-badge">{{internetNotificationsCount}}</span></a></li>-->
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+              </li>
+            </ul>
+            <ul class="nav navbar-nav" id="nav-context-bar">
+              <li id="username">
+                <div ng-if="!(ruiMethods.user.is.agent() && !ruiMethods.agent.has.customerContext())"  class="user-status">
+                  <a ng-hide="ruiMethods.user.is.loggedIn() || ruiMethods.user.is.agent()" class='login-btn btn-default btn-sm' ng-click="login()">
+                    <ins translate="global.cta.logIn"></ins>
+                  </a>
+
+                  <div class="user-name" ng-show="ruiMethods.user.is.loggedIn() || ruiMethods.agent.has.customerContext()">
+                    <span ng-show="userinfo.firstName" class="user-label"><ins translate='user'></ins></span>
+                    <span ng-show="userinfo.firstName">:</span>
+                    <!--<a ui-sref="myAccount.viewProfile">-->
+                      <span class="user-name text-capitalize">{{ userInfo.firstName + ' ' + userInfo.lastName }}</span>
+                    <!--</a>-->
+                    <!--Show sign out for consumer-->
+                    <a ng-if="!ruiMethods.user.is.agent()" class="user-sign-out" ng-click="logout()">
+                      <ins translate='sign-out'></ins>
+                    </a>
+                    <!--Show close account for agent-->
+                    <a ng-if="ruiMethods.user.is.agent()" class="user-sign-out" ng-click="ruiMethods.agent.signOut();">
+                      <ins translate='global.cta.closeAccount'></ins>
+                    </a>
+                  </div>
+                </div>
+              </li>
+              <li class="dropdown" id="province">
+                <rg-province-selector></rg-province-selector>
+              </li>
+              <li>
+                <rg-language-selector></rg-language-selector>
+              </li>
+              <li id="search">
+                <!-- data-target="#modal-typeahead" data-toggle="modal">!-->
+                <!--<a href="http://www.fido.ca/web/Fido.portal?_nfpb=true&_pageLabel=fido_search&Ntt=" title="Search"><i class="ute-icon-search"></i></a>!-->
+                <a ng-click="openSearch()" title="Search"><i class="ute-icon-search"></i></a>
+              </li>
+              <li id="shopcart"><a class="shop-btn"
+                                   ute-popover
+                                   popover-class="mini-shopping-cart"
+                                   popover-backdrop="true"
+                                   popover-close-target="#close-popover"
+                                   popover-insert-mode="after"
+                                   popover-placement="bottom"
+                                   popover-content="<fido-mini-cart></fido-mini-cart>">
+                <i class="ute-icon-cart" ><span ng-show="getQuantity()" class="cart-badge"><i class="ute-icon-cart-badge"></i>{{getQuantity() === 0 ? '' : getQuantity()}}</span></i>
+              </a></li>
+            </ul>
+          </nav>
+          <div id="nav-actions">
+            <div id="search-mob" class="inline-block"> <a ng-click="openSearch()" title="Search"><i class="ute-icon-search"></i></a></div>
+            <div id="shopcart-mob" class='inline-block'>
+              <a class="shop-btn"
+                 ute-popover
+                 popover-class="mini-shopping-cart"
+                 popover-backdrop="true"
+                 popover-close-target="#close-popover"
+                 popover-insert-mode="after"
+                 popover-placement="bottom"
+                 popover-content="<fido-mini-cart></fido-mini-cart>">
+                <i class="ute-icon-cart"><span ng-show="getQuantity()" class='cart-badge'>{{getQuantity() === 0 ? '' : getQuantity()}}</span></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ng-include="'modules/user/views/janrain-signin.html'"></div>
+    </div>
+  </div>
+</header>
+

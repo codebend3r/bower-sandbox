@@ -33,15 +33,19 @@ config.externalGulpTasks = [
     description: ''
   },
   {
-    name: 'build-1-file',
+    name: 'build-min-index',
     description: ''
   },
   {
-    name: 'build-2-files',
-    description: ''
+    name: 'clean-build',
+    description: 'deletes build folder'
   },
   {
     name: 'copy-bower',
+    description: ''
+  },
+  {
+    name: 'copy-images',
     description: ''
   },
   {
@@ -50,6 +54,14 @@ config.externalGulpTasks = [
   },
   {
     name: 'copy-js',
+    description: ''
+  },
+  {
+    name: 'copy-fonts',
+    description: ''
+  },
+  {
+    name: 'copy-cms',
     description: ''
   },
   {

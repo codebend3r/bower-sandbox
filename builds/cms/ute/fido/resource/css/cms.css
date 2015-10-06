@@ -1,0 +1,64 @@
+.fido-banner-dashboard{ 
+	position: relative; 
+}
+.header-text{ 
+	position: absolute; color: #FFF; top:30%; left: 15px;
+}
+.header-text i{ 
+	font-size: 5rem; 
+}
+
+
+/*****Account Overview - Internet TV Tile [START]*****/
+#fido-acct-overview-tile{
+	/*background:url('/html-fido/cms/ute/fido/images/brand/fido/acct-overview-icon-tile.jpg') no-repeat 0 0;*/
+	padding: 0px; line-height: 1; left: -55px; width: 445px;
+	position: relative !important;
+}
+#fido-acct-overview-tile > img{
+	padding: 0;
+	position: absolute !important;
+}
+#fido-acct-overview-tile h4{ 
+	font-size:24px; position: relative; padding: 35px 25px 0  50px; line-height: 1.25;
+}
+
+#fido-acct-overview-tile p{ 
+	position: relative;
+	padding:0px 25px 0  50px;
+}
+#fido-acct-overview-tile p a:hover{
+	text-decoration:none; color:#ffe600;
+}
+/*****Account Overview - Internet TV Tile  [END]*****/
+
+body[ute-device-size='md'] .internet-landing-container button, body[ute-device-size='lg'] .internet-landing-container button, body[ute-device-size='xl'] .internet-landing-container button, body[ute-device-size='2k'] .internet-landing-container button, body[ute-device-size='4k'] .internet-landing-container button, body[ute-device-size='8k'] .internet-landing-container button {
+  position: absolute;
+  bottom: 120px;
+  right: -2px; 
+}
+
+
+/* Internet Page Background */
+body[ute-device-size = 'xs'] .background-text-bg{
+	background: transparent url("/html-fido/cms/ute/fido/images/banner/banner-text-bg.png") repeat scroll 0% 0% / 100% auto; 
+	position: relative; 
+	clear: both; 
+	margin-top: -15px; 
+	padding: 15px;  
+}
+
+body[ute-device-size = 'xs']  .check-availability-xs{
+	min-height: 100px;
+}
+
+/* Internet Page Background */
+body[ute-device-mobile = 'false'] .background-text-bg, body[ute-device-size='md'] .background-text-bg{
+	background: transparent url("/html-fido/cms/ute/fido/images/banner/banner-text-bg.png") repeat scroll 0 0 / 100% auto;
+    bottom: 0;
+    height: 85px;
+    padding: 25px 35px;
+    position: absolute;
+    right: 0;
+    width: 70%;
+}

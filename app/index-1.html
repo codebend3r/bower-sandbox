@@ -1,16 +1,14 @@
 <!doctype html>
-<html lang="en">
-
+<html>
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" id="device-viewport" content="width=device-width,initial-scale=1">
-  <title>LiveSite - Local Paths (1 File)</title>
+  <title>LiveSite - local paths (1 File)</title>
   <!-- build:css css/ute.ui.livesite.css -->
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="bower_components/ute-ui/dist/css/ute.ui.css">
+  <link rel="stylesheet" href="cms/ute/fido/resource/css/ute.css">
+  <link rel="stylesheet" href="cms/ute/fido/resource/css/fido.css">
   <!-- endbuild -->
-
 </head>
 
 <body ng-app="ute.ui.livesite" ute-restive>
@@ -18,7 +16,7 @@
 <div>
   <h2>Livesite</h2>
   <div class="col-xs-12">
-    <ute-header></ute-header>
+    <ute-header is-cms="true"></ute-header>
   </div>
 </div>
 
@@ -37,8 +35,9 @@
 <script src="bower_components/moment/locale/fr-ca.js"></script>
 <script src="bower_components/angular-moment/angular-moment.js"></script>
 <script src="bower_components/angular-translate/angular-translate.js"></script>
-<script src="bower_components/ute-ui/dist/livesite/js/ute.ui.livesite.js"></script>
-<script src="bower_components/ute-ui/dist/livesite/js/ute.ui.livesite.tmpl.js"></script>
+<script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+<script src="bower_components/ute-ui/dist/js/ute.ui.debug.js"></script>
+<script src="bower_components/ute-ui/dist/js/ute.ui.tmpl.js"></script>
 <!-- endbuild -->
 
 </body>

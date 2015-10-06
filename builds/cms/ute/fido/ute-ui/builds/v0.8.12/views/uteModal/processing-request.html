@@ -1,0 +1,57 @@
+<!-- typically from 0-10s -->
+<div ng-if="loadingView === true">
+  <div class="modal-header">
+    <!-- <h2 class="modal-title">Processing...</h2> -->
+  </div>
+  <div class="modal-body">
+    <!-- <p>Processing your request now...</p> -->
+    <div class="row">
+      <div class="col-xs-12 col-md-3 text-center">
+        <img src="/html-fido/cms/ute/fido/images/brand/fido/loading-2.gif"/>
+      </div>
+
+      <div class="col-xs-12 col-md-8 col-md-offset-1">
+
+        <h2 class="modal-title" id="myModalLabel6">Processing Your Request</h2>
+        <p>This might take some time. Please be patient.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- typically from 10-30s -->
+<div ng-if="processingView === true">
+  <div class="modal-header">
+    <!-- <h2 class="modal-title">Processing...</h2> -->
+  </div>
+  <div class="modal-body">
+    <!-- <p>Still processing. Please be patient.</p> -->
+    <div class="row">
+      <div class="col-xs-12 col-md-3 text-center">
+        <img src="/html-fido/cms/ute/fido/images/brand/fido/loading-2.gif"/>
+      </div>
+
+      <div class="col-xs-12 col-md-8 col-md-offset-1">
+        <h2 class="modal-title" id="myModalLabel6">Still Processing Your Request</h2>
+        <p>Please wait..</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- request has timed out / or any other SS errors -->
+<div ng-if="errorView === true">
+  <div class="modal-header">
+    <button type="button" ng-click="cancel()" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true"><span class="ute-icon-circle-x"></span></span>
+    </button>
+    <h2 class="modal-title">Error</h2>
+  </div>
+  <div class="modal-body">
+    <p>Something went wrong. Please try again later. You can <a href="" ng-click="makeRequest();">click here</a> to try again.</p>
+  </div>
+  <div class="modal-footer">
+    <a data-dismiss="modal" class="ute-link" ng-click="cancel()"><ins translate="Close"></ins></a>
+  </div>
+</div>

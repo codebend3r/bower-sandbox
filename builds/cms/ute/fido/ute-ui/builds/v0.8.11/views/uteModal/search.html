@@ -1,0 +1,39 @@
+<div class="modal-header">
+  <button type="button" ng-click="cancel()" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true"><span class="ute-icon-circle-x"></span></span>
+  </button>
+  <!--<h2 class="modal-title"><ins translate="confirm-internet-package-remove"></ins>What are you looking for?</h2>!-->
+</div>
+
+<div class="modal-body">
+  <form name="formCheckAvailability" ng-submit="submitSearch(search)" action="http://www.fido.ca/web/Fido.portal" method="GET" novalidate>
+    <div class="input-group ute-input-search">
+
+      <h4>
+        <ins translate="search-title"></ins>
+      </h4>
+      <br/>
+
+      <input type="hidden" name="_nfpb" value="true"/>
+      <input type="hidden" name="_pageLabel" value="fido_search"/>
+      <input
+        id="siteSearch"
+        name="Ntt"
+        locale="en-ca"
+        class="ute-input-text form-control address"
+        type="search"
+        ng-model="search"
+        autocomplete="off"
+        placeholder=""/>
+      <span class="input-group-btn">
+        <button class="ute-icon-search" type="submit" ng-disabled="lookupDisabled"></button>
+      </span>
+
+    </div>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <!--<a data-dismiss="modal" class="ute-link clickable" ng-click="cancel()" ute-tracking="eclipse-click-6"><ins translate="global.cta.cancel"></ins></a>
+  <button class="ute-btn-primary" ng-click="ok()"><ins translate="global.cta.confirmRemoval"></ins></button>!-->
+</div>

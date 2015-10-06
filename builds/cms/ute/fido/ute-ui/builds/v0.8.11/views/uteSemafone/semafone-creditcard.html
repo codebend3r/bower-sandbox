@@ -1,0 +1,66 @@
+<div class="semafone-field">
+    <label>
+        <span class="semafone-label-and-icons">
+          <ins translate="credit-card-number"></ins>
+          <span class="ss-pay-now-icons pull-right">
+            <img id="imgVisa"
+                 height="21"
+                 ng-src="{{sm.cards.visa.image}}"
+                 ng-class="sm.creditPaymentObj.creditCardType === sm.cards.visa.name ? 'card_selected' : 'card_not_selected'">
+            <img id="imgMc"
+                 height="21"
+                 ng-src="{{sm.cards.mc.image}}"
+                 ng-class="sm.creditPaymentObj.creditCardType === sm.cards.mc.name ? 'card_selected' : 'card_not_selected'">
+            <img id="imgAmex"
+                 height="21"
+                 ng-src="{{sm.cards.amex.image}}"
+                 ng-class="sm.creditPaymentObj.creditCardType === sm.cards.amex.name ? 'card_selected' : 'card_not_selected'">
+          </span>
+        </span>
+
+        <div ng-show="false">
+            <input type="hidden" name="token" id="token" data-ng-value="sm.token">
+            <input type="hidden" name="cardScheme" id="cardScheme" data-ng-value="sm.cardScheme">
+            <input type="hidden" name="maskedCardNumber" id="maskedCardNumber" data-ng-value="sm.maskedCardNumber">
+            <input type="hidden" name="semafoneTokeniseErrorCode" id="semafoneTokeniseErrorCode" data-ng-value="sm.semafoneTokeniseErrorCode">
+            <input type="hidden" name="semafoneTokeniseReasonCode" id="semafoneTokeniseReasonCode" data-ng-value="sm.semafoneTokeniseReasonCode">
+            <input type="hidden" name="isPanResetOnInitialFocus" id="isPanResetOnInitialFocus" data-ng-value="sm.isPanResetOnInitialFocus">
+            <input type="hidden" name="isPanFocusedOnInitialise" id="isPanFocusedOnInitialise" data-ng-value="sm.isPanFocusedOnInitialise"/>
+            <input type="hidden" name="semafoneTokeniseResponseCode" id="semafoneTokeniseResponseCode" data-ng-value="sm.semafoneTokeniseResponseCode">
+            <input type="hidden" name="semafoneTokeniseErrorDesc" id="semafoneTokeniseErrorDesc" data-ng-value="sm.semafoneTokeniseErrorDesc">
+            <input type="hidden" name="semafoneValidationState" id="semafoneValidationState" data-ng-value="sm.semafoneValidationState">
+            <input type="hidden" name="semafoneState" id="semafoneState" data-ng-value="sm.semafoneState">
+            <input type="hidden" name="cybersourceTokeniseResponseCode" id="cybersourceTokeniseResponseCode" data-ng-value="sm.cybersourceTokeniseResponseCode">
+            <input type="hidden" name="cybersourceTokeniseReasonCode" id="cybersourceTokeniseReasonCode" data-ng-value="sm.cybersourceTokeniseReasonCode">
+            <input type="hidden" name="cybersourceTokeniseMessage" id="cybersourceTokeniseMessage" data-ng-value="sm.cybersourceTokeniseMessage">
+            <input type="hidden" name="cybersourceTokeniseErrorCause" id="cybersourceTokeniseErrorCause" data-ng-value="sm.cybersourceTokeniseErrorCause">
+        </div>
+
+    </label>
+</div>
+
+<div class="col-xs-12 padding-0">
+    <div align="left" ng-bind-html="sm.semafoneIframeUrl"></div>
+    <!-- <div align="left">
+      <iframe id="semafoneIframe" ng-src="{{semafoneIframeUrl}}" class="ute-input-text" style="display: inline; /* max-width: 300px; */ font-size: 17px;width: 316px; margin-top:2px;height: 33px;padding-left: 15px;", scrolling="no" transparency="true" offset="0" border="0" outline="0" frameBorder="0" frameborder="0" marginwidth="0" marginheight="0"></iframe>
+    </div> -->
+    <div ng-show="sm.isNotValidCard">
+        <i class="ute-icon-error ute-col-alert-danger"></i> <span class="ute-col-alert-danger" id="semafoneError">{{'msg-pp-enter-a-valid-credit-card-number' | translate}}</span>
+    </div>
+    <div ng-show="sm.isCybersourceError">
+        <i class="ute-icon-error ute-col-alert-danger"></i> <span class="ute-col-alert-danger"
+                                                                  id="cybersourceConnectionError">{{'msg-pp-enter-a-cyber-source-connection-error' | translate}}</span>
+    </div>
+</div>
+
+<!-- <div class="col-xs-12 col-md-6">
+  <div class="ss-pay-now-icons pull-right">
+    <img ng-src="{{cards.visa.image}}" id="imgVisa"
+         ng-class="creditPaymentObj.creditCardType === cards.visa.name ? 'visa' : 'card_not_selected'">
+    <img ng-src="{{cards.mc.image}}" id="imgMc"
+         ng-class="creditPaymentObj.creditCardType === cards.mc.name ? 'master' : 'card_not_selected'">
+    <img ng-src="{{cards.amex.image}}" id="imgAmex"
+         ng-class="creditPaymentObj.creditCardType === cards.amex.name ? 'amex' : 'card_not_selected'">
+  </div>
+</div> -->
+<!--</body>-->
