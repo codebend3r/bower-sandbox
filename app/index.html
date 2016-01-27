@@ -1,39 +1,29 @@
 <!doctype html>
-<html lang="en">
+<html ng-app="ute.ui">
 
 <head>
 
   <meta charset="utf-8">
   <meta name="viewport" id="device-viewport" content="width=device-width,initial-scale=1">
-  <title>LiveSite - Dev</title>
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="bower_components/ute-ui/dist/livesite/css/ute.ui.livesite.css">
+  <title>LiveSite | UTE-UI</title>
+  <link rel="stylesheet" href="bower_components/ute-ui/dist/css/ute.ui.css">
+  <link rel="stylesheet" href="bower_components/ute-ui/dist/css/ute.ui.fido.css">
 
 </head>
 
-<body ng-app="livesite" ute-restive>
+<body class="ute-restive ute-body" ute-brand="fido">
 
 <div class="container">
-  <h2>Livesite</h2>
-  <ute-header is-cms=true></ute-header>
+  <ute-header is-cms="true" use-href="true"></ute-header>
+  <h2 style="font-family: 'lato'; margin-top: 50px; font-size: 24px">build v0.53</h2>
+  <pre>collections: {{collections | json}}</pre>
 </div>
+<ute-footer is-cms="true"></ute-footer>
 
-<script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/jquery-cookie/jquery.cookie.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
-<script src="bower_components/underscore/underscore.js"></script>
-<script src="bower_components/angular-i18n/angular-locale_en-ca.js"></script>
-<script src="bower_components/angular-cookies/angular-cookies.js"></script>
-<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-<script src="bower_components/moment/moment.js"></script>
-<script src="bower_components/moment/locale/en-ca.js"></script>
-<script src="bower_components/moment/locale/fr-ca.js"></script>
-<script src="bower_components/angular-moment/angular-moment.js"></script>
-<script src="bower_components/angular-translate/angular-translate.js"></script>
-<script src="bower_components/ute-ui/dist/livesite/js/ute.ui.livesite.js"></script>
-<script src="bower_components/ute-ui/dist/livesite/js/ute.ui.livesite.tmpl.js"></script>
+<script src="bower_components/ute-ui/dist/js/ute.ui.vendor.js"></script>
+<script src="bower_components/ute-ui/dist/js/ute.ui.debug.js"></script>
+<script src="bower_components/ute-ui/dist/js/ute.ui.tmpl.js"></script>
+
 <script src="js/app.js"></script>
 
 </body>
