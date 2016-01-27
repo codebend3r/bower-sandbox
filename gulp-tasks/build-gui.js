@@ -14,11 +14,11 @@ module.exports = function (gulp, plugins, config, gutil) {
     gutil.log(gutil.colors.white('----------------------------------------'));
 
     return runSequence(
-      //'copy-js',
-      //'copy-bower',
+      'copy-js',
+      'copy-bower',
       'copy-cms',
       'copy-fonts',
-      //'copy-images',
+      'copy-images',
       'copy-index',
       //'build-min-index',
       //'copy-views',
